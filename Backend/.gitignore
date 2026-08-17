@@ -1,0 +1,13 @@
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+secrets.json
+auth.json
+__pycache__/
+*.pyc
+lambda_package/
+sentinel_lambda.zip
+.venv/
+venv/

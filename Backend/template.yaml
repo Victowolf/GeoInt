@@ -1,0 +1,68 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Sentinel - Global Resource Response AI.
+  Deploys the FastAPI app (via Mangum) as a single Lambda function, exposed
+  publicly through a Function URL (no API Gateway needed - keeps this on
+  AWS's free tier). CockroachDB connection details and the Groq API key are
+  passed in as environment variables at deploy time - see the Parameters
+  section below and DEPLOY.md for exact values.
+
+Parameters:
+  CockroachHost:
+    Type: String
+    Description: CockroachDB Serverless cluster hostname (e.g. gazing-narwhal-31729.j77.aws-ap-south-1.cockroachlabs.cloud)
+  CockroachUser:
+    Type: String
+    Description: CockroachDB SQL user (e.g. sentinel)
+  CockroachPassword:
+    Type: String
+    NoEcho: true
+    Description: CockroachDB SQL user password
+  CockroachDb:
+    Type: String
+    Default: defaultdb
+  CockroachPort:
+    Type: String
+    Default: "26257"
+  GroqApiKey:
+    Type: String
+    NoEcho: true
+    Description: Groq API key used by config.py for all agent LLM calls
+
+Globals:
+  Function:
+    Timeout: 60          # multiple agents run in parallel and call Groq + CockroachDB
+    MemorySize: 1024      # fastembed/onnxruntime + concurrent agent calls need headroom
+    Runtime: python3.12
+
+Resources:
+  SentinelFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: sentinel-api
+      CodeUri: lambda_package/
+      Handler: main.handler
+      Environment:
+        Variables:
+          COCKROACH_HOST: !Ref CockroachHost
+          COCKROACH_USER: !Ref CockroachUser
+          COCKROACH_PASSWORD: !Ref CockroachPassword
+          COCKROACH_DB: !Ref CockroachDb
+          COCKROACH_PORT: !Ref CockroachPort
+          GROQ_API_KEY: !Ref GroqApiKey
+          ALLOWED_ORIGINS: "*"
+      FunctionUrlConfig:
+        AuthType: NONE      # public URL for the hackathon demo; add auth before any real production use
+        Cors:
+          AllowOrigins: ["*"]
+          AllowMethods: ["*"]
+          AllowHeaders: ["*"]
+
+Outputs:
+  SentinelFunctionUrl:
+    Description: Public HTTPS endpoint for the Sentinel API (this is the "functional demo app" URL for submission)
+    Value: !GetAtt SentinelFunctionUrl.FunctionUrl
+  SentinelFunctionArn:
+    Description: Lambda function ARN
+    Value: !GetAtt SentinelFunction.Arn
