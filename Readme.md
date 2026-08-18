@@ -13,6 +13,13 @@
 
 </div>
 
+> To show your own project logo above this text instead of just the name, save your logo image inside the `assests` folder in your repo, for example `assests/logo.png`, then add this line right above the badges:
+> ```markdown
+> <img src="https://raw.githubusercontent.com/Victowolf/GeoInt/main/assests/logo.png" alt="Sentinel logo" width="140"/>
+> ```
+
+---
+
 ## Index
 
 - [Problem Understanding](#problem-understanding)
@@ -51,15 +58,9 @@ Agents one, two, three, and five run at the same time since none of them depend 
 
 On top of the agents, Sentinel remembers. Every past run is stored, and relevant pieces of it are pulled back in the next time a similar route comes up, so the system gets more useful the more it is used instead of starting from zero every single time.
 
-**[Add your solution overview flowchart image here]**
-
-To add it, save your flowchart image inside the repository, for example in a folder called `assets/`, then reference it in this file like this:
-
-```markdown
-![Solution Overview]([./assets/solution-overview.png](https://github.com/Victowolf/GeoInt/blob/main/assests/architecture-flow.png))
-```
-
-Place that line right where you want the image to show up. GitHub will render it automatically once the image file is committed alongside this README.
+<div align="center">
+<img src="https://raw.githubusercontent.com/Victowolf/GeoInt/main/assests/solution-overview.png" alt="Sentinel solution overview" width="800"/>
+</div>
 
 ## Architecture
 
@@ -91,13 +92,9 @@ Sentinel is packaged to deploy as a single AWS Lambda function. The same FastAPI
 
 Nothing about the actual application code changes between running it locally and running it deployed. Only the entrypoint changes, which keeps local development and production behavior identical, so what gets tested locally is exactly what runs live.
 
-**[Add your architecture flowchart image here]**
-
-Same method as before, drop the image file into your `assets/` folder and reference it, for example:
-
-```markdown
-![Architecture Flow](./assets/architecture-flow.png)
-```
+<div align="center">
+<img src="https://raw.githubusercontent.com/Victowolf/GeoInt/main/assests/architecture-flow.png" alt="Sentinel architecture flow" width="800"/>
+</div>
 
 ## Results and Validation
 
