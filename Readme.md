@@ -12,7 +12,6 @@
 ![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
 
 </div>
----
 
 ## Index
 
