@@ -12,12 +12,6 @@
 ![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
 
 </div>
-
-> To show your own project logo above this text instead of just the name, save your logo image inside an `assets` folder in your repo, for example `assets/logo.png`, then add this line right above the badges:
-> ```markdown
-> <img src="./assets/logo.png" alt="Sentinel logo" width="140"/>
-> ```
-
 ---
 
 ## Index
