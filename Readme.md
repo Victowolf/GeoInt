@@ -56,7 +56,7 @@ On top of the agents, Sentinel remembers. Every past run is stored, and relevant
 To add it, save your flowchart image inside the repository, for example in a folder called `assets/`, then reference it in this file like this:
 
 ```markdown
-![Solution Overview](./assets/solution-overview.png)
+![Solution Overview]([./assets/solution-overview.png](https://github.com/Victowolf/GeoInt/blob/main/assests/architecture-flow.png))
 ```
 
 Place that line right where you want the image to show up. GitHub will render it automatically once the image file is committed alongside this README.
