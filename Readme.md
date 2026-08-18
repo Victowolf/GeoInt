@@ -1,4 +1,36 @@
+<div align="center">
+
 # Sentinel
+
+**AI powered supply chain risk and procurement intelligence, across every mode of transport**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![CockroachDB](https://img.shields.io/badge/CockroachDB-6933FF?style=for-the-badge&logo=cockroachlabs&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-F55036?style=for-the-badge&logo=groq&logoColor=white)
+
+</div>
+
+> To show your own project logo above this text instead of just the name, save your logo image inside an `assets` folder in your repo, for example `assets/logo.png`, then add this line right above the badges:
+> ```markdown
+> <img src="./assets/logo.png" alt="Sentinel logo" width="140"/>
+> ```
+
+---
+
+## Index
+
+- [Problem Understanding](#problem-understanding)
+- [Overall Solution Features](#overall-solution-features)
+- [Architecture](#architecture)
+- [AWS and CockroachDB Integration](#aws-and-cockroachdb-integration)
+- [Results and Validation](#results-and-validation)
+- [Running the Project](#running-the-project)
+- [Closing Note](#closing-note)
+
+---
 
 Sentinel is a multi agent backend that checks a shipment before it moves. You give it an origin, a set of destinations, a budget, a commodity, and a mode of transport, and it comes back with a full risk picture and a procurement recommendation, built by five agents working together instead of one model trying to do everything at once.
 
